@@ -3,7 +3,7 @@ import { InputBox } from "./components";
 import useCurrencyInfo from "./hooks/useCurrencyInfo";
 
 const App = () => {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(1);
   const [from, setFrom] = useState("usd");
   const [to, setTo] = useState("inr");
   const [convertedAmount, setConvertedAmount] = useState(0);
@@ -25,8 +25,8 @@ const App = () => {
 
   return (
     <>
-      <div className="bg-currency-notes  bg-cover h-screen w-full overflow-hidden font-montserrat flex items-center justify-center">
-        <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-xs bg-white/30">
+      <div className=" selection:bg-black selection:text-white bg-currency-notes   bg-cover bg-no-repeat h-screen w-full overflow-hidden font-montserrat flex items-center justify-center">
+        <div className="w-full max-w-md mx-auto border border-slate-800 rounded-md p-3 sm:p-8 backdrop-blur-xs bg-gray-500/70">
           <form onSubmit={(e) => e.preventDefault()}>
             <div className="w-full mb-1">
               <InputBox
@@ -38,14 +38,19 @@ const App = () => {
                 onAmountChange={(amount) => setAmount(amount)}
               />
             </div>
-            <div>
+            <div className="flex justify-center items-center">
               <button
                 type="button"
-                className="absolute text-center left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-white rounded-md bg-blue-600 flex items-center justify-center text-white px-2 py-2"
+                className="absolute text-center border-2 border-gray-300 rounded-md bg-orange-400
+                active:bg-orange-500  flex items-center justify-center text-white px-1 py-1 sm:px-6 sm:py-2 active:scale-95 transform transition-transform duration-200 hover:scale-105 ease-in-out focus:ring-2 sm:focus:ring-4 focus:outline-none focus:ring-purple-500"
                 onClick={swap}
               >
-                <span className="material-symbols-outlined">swap_vert</span>
-                Swap
+                <span
+                  className="font-semibold transform transition-transform active:-rotate-180 hover:rotate-90 duration-200
+                material-symbols-outlined"
+                >
+                  swap_vert
+                </span>
               </button>
             </div>
             <div className="w-full mt-1 mb-4">
@@ -58,13 +63,17 @@ const App = () => {
                 amountDisable
               />
             </div>
-            <button
-              type="submit"
-              className="w-full bg-blue-600 text-white px-4 py-4 rounded-lg"
-              onClick={convert}
-            >
-              Convert {from.toUpperCase()} to {to.toUpperCase()}
-            </button>
+            <div className="flex items-center justify-center">
+              <button
+                type="submit"
+                className="w-fit sm:w-full bg-purple-600 text-white sm:px-16 text-sm sm:text-base py-4 px-6 rounded-lg active:scale-95 transform transition-transform duration-200 hover:scale-105 ease-in-out focus:ring-4 focus:outline-none active:bg-purple-800 focus:ring-orange-400"
+                onClick={convert}
+              >
+                Convert{" "}
+                <span className="  font-semibold">{from.toUpperCase()}</span> to{" "}
+                <span className=" font-semibold ">{to.toUpperCase()}</span>
+              </button>
+            </div>
           </form>
         </div>
       </div>
