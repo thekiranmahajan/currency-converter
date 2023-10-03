@@ -25,7 +25,7 @@ const App = () => {
 
   return (
     <>
-      <div className=" selection:bg-black selection:text-white bg-currency-notes   bg-cover bg-no-repeat h-screen w-full overflow-hidden font-montserrat flex items-center justify-center">
+      <div className=" selection:bg-purple-600 selection:text-white bg-currency-notes   bg-cover bg-no-repeat h-screen w-full overflow-hidden font-montserrat flex items-center justify-center">
         <div className="w-full max-w-md mx-auto border border-slate-800 rounded-md p-3 sm:p-8 backdrop-blur-xs bg-gray-500/70">
           <form onSubmit={(e) => e.preventDefault()}>
             <div className="w-full mb-1">
