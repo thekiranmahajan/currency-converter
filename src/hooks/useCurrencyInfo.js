@@ -8,10 +8,9 @@ const useCurrencyInfo = (currency) => {
     fetch(url)
       .then((response) => response.json())
       .then((response) => setData(response[currency]));
-    console.log(data);
   }, [currency]);
 
-  return data
+  return data;
 };
 
 export default useCurrencyInfo;
